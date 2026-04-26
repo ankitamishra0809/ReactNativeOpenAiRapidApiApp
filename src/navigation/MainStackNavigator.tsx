@@ -8,7 +8,8 @@ function MainStackNavigator(){
 
     return (
         <Stack.Navigator>
-            <Stack.Screen name="HomeScreen" component={HomeScreen}></Stack.Screen>
+            <Stack.Screen options= {{headerShown:false}}
+            name="HomeScreen" component={HomeScreen}></Stack.Screen>
             <Stack.Screen name='PurpleScreen' component={PurpleScreen}></Stack.Screen>
             <Stack.Screen name="GoldScreen" component={GoldScreen}></Stack.Screen>
         </Stack.Navigator>
