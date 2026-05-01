@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, Button, StyleSheet, Image  } from 'react-native';
 import Header from '../components/Header';
 import { useNavigation } from '@react-navigation/native';
+import StarsBackground from '../components/StarsBackground';
 
 
 const HomeScreen: React.FC = () => {
@@ -10,14 +11,27 @@ const HomeScreen: React.FC = () => {
 
   return (
     <View style={styles.container}>
+      <StarsBackground />
       <Header title="Home Page" />
 
-      <Text style={styles.text}>My New Demo Application🚀</Text>
+      <Text style={styles.text}>Welcome to DevTechAi </Text>
+       <Image
+        source={require('../../assets/devtechAiLogo.png')}
+        style={styles.logo}
+      />
 
       <Text style={styles.counter}>Count: {count}</Text>
+      
 
       <Button title="Increase" onPress={() => setCount(count + 1)} />
         <Button title="Go to Gold screen " onPress={()=>navigation.navigate("GoldScreen")}/>
+            <Button
+        title="Go to Login"
+        onPress={() => navigation.navigate('Login')}
+      />  <Button
+        title="Create Your Account "
+        onPress={() => navigation.navigate('CreateAccount')}
+      />
     </View>
   );
 };
@@ -37,5 +51,11 @@ const styles = StyleSheet.create({
   counter: {
     fontSize: 22,
     marginBottom: 10
+  },
+  logo:{
+     width: 300,
+    height: 300,
+    marginBottom: 20,
+    resizeMode: 'contain',
   }
 });
